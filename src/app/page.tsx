@@ -6,7 +6,7 @@ export const revalidate = 60;
 export default async function Home() {
   const { data } = await fetchPhotoList({ page: 1 });
   return (
-    <main className="max-w-screen-xl mx-auto">
+    <main>
       <PhotoList initialData={data} fetchData={fetchPhotoList} key={data[0].id} />
     </main>
   );

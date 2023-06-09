@@ -1,3 +1,4 @@
+'use client';
 import { formatDistance } from 'date-fns';
 import { Calendar, Camera, MapPin, Maximize2, Minimize2 } from 'lucide-react';
 import Image from 'next/image';

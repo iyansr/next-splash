@@ -31,10 +31,15 @@ export interface UnsplashResponse {
   sponsorship: Sponsorship;
   tags: Tag[];
   updated_at: string;
+  urls: Urls;
   user: User;
   width: number;
-  urls: Urls;
 }
+export type SearchResponse = {
+  results: UnsplashResponse[];
+  total: number;
+  total_pages: number;
+};
 
 export interface Urls {
   full: string;

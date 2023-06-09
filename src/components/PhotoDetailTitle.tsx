@@ -1,4 +1,4 @@
-import { Download, Share2 } from 'lucide-react';
+import { Download } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -6,6 +6,7 @@ import React from 'react';
 import type { UnsplashResponse } from '@/type';
 
 import PhotoLikeButton from './PhotoLikeButton';
+import ShareButton from './ShareButton';
 import { Button } from './ui/button';
 
 const PhotoDetailTitle = ({ photo }: { photo: UnsplashResponse }) => {
@@ -25,9 +26,7 @@ const PhotoDetailTitle = ({ photo }: { photo: UnsplashResponse }) => {
       <div className="flex items-center space-x-2 mt-4">
         <div className="flex-1 flex items-center space-x-2">
           <PhotoLikeButton photo={photo} isDetail />
-          <Button size="sm">
-            <Share2 className="h-4 w-4" />
-          </Button>
+          <ShareButton photo={photo} />
         </div>
 
         <div>

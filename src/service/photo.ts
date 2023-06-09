@@ -1,6 +1,6 @@
 'use server';
 
-import type { UnsplashResponse } from '@/type';
+import type { SearchResponse, UnsplashResponse } from '@/type';
 
 import axiosInstance from './axios';
 
@@ -37,6 +37,19 @@ export async function fetchPhotoList({ page = 1 }): Promise<PhotoResponse> {
     total_item: totalItem,
     per_page: perPage,
   };
+}
+
+export async function searchPhoto({ page = 1, query = '' }): Promise<SearchResponse> {
+  const response = await axiosInstance.request<SearchResponse>({
+    method: 'GET',
+    url: 'search/photos',
+    params: {
+      page,
+      query: encodeURIComponent(query),
+    },
+  });
+
+  return response.data;
 }
 
 export async function fetchDetailPhoto(id: string): Promise<UnsplashResponse> {
