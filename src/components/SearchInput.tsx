@@ -9,7 +9,7 @@ import useUpdated from '@/hooks/useUpdated';
 export default function SearchInput() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const defaultValue = searchParams.get('query') ?? '';
+  const defaultValue = encodeURIComponent(searchParams.get('query') ?? '');
   const [value, setValue] = React.useState(defaultValue);
 
   const debouncedValue = useDebounce<string>(value, 1000);
